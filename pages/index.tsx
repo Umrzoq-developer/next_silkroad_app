@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 
-import MainForm from "../src/v_components/login_components/MainForm";
+import MainForm from "@/view_components/login/MainForm";
 import styles from "styles/login.module.scss";
 
 const Home: NextPage = () => {

@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import React from "react";
-import Users from "../src/v_components/main_components/Users";
+import Users from "@/view_components/dashboard/Users";
 
 const Dashboard: NextPage = () => {
   return (
