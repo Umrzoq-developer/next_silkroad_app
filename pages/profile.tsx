@@ -5,7 +5,7 @@ import React from "react";
 import styles from "styles/card.module.scss";
 import { NextPage } from "next";
 
-const Math: NextPage = () => {
+const Profile: NextPage = () => {
   return (
     <div>
       <Head>
@@ -22,4 +22,4 @@ const Math: NextPage = () => {
   );
 };
 
-export default Math;
+export default Profile;

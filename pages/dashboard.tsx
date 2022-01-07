@@ -3,7 +3,7 @@ import Head from "next/head";
 import React from "react";
 import Users from "../src/v_components/main_components/Users";
 
-const MainApp: NextPage = () => {
+const Dashboard: NextPage = () => {
   return (
     <div>
       <Head>
@@ -19,4 +19,4 @@ const MainApp: NextPage = () => {
   );
 };
 
-export default MainApp;
+export default Dashboard;
