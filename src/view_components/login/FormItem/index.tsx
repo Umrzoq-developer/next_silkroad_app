@@ -30,6 +30,7 @@ const FormItem: React.FC<IProps> = ({
               onChange={(e) => {
                 field.onChange(e);
               }}
+              autoComplete="off"
               type={type}
               placeholder={placeholder}
             />

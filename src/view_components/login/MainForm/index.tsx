@@ -11,34 +11,33 @@ import { useRouter } from "next/router";
 import { userDetail } from "@/store/auth";
 import { AUTH_TOKEN } from "@/constants/ApiConstant";
 import styles from "styles/mainForm.module.scss";
-
-// import { useLoginWithEmailMutation } from "@/graphql/user";
+import { useLoginWithEmailMutation } from "@/graphql/user";
 
 const MainForm: React.FC = () => {
   const [_cookie, setCookie] = useCookies([AUTH_TOKEN]);
   const [_, setUser] = useRecoilState(userDetail);
   const navigate = useRouter();
 
-  // const [loginWithEmailMutation, loginWithEmailMutationResult] =
-  //   useLoginWithEmailMutation({
-  //     onCompleted: ({ result }) => {
-  //       setCookie(AUTH_TOKEN, result, {
-  //         path: "/",
-  //       });
-  //       const res = getValues();
-  //       setUser({ ...res, isAuth: true });
-  //       navigate.push("/main");
-  //     },
-  //     onError: ({ message }) => {
-  //       // setError("Email or password is incorrect!");
-  //       ms.error({
-  //         content: message,
-  //         style: {
-  //           marginTop: "30px",
-  //         },
-  //       });
-  //     },
-  //   });
+  const [loginWithEmailMutation, loginWithEmailMutationResult] =
+    useLoginWithEmailMutation({
+      onCompleted: ({ result }) => {
+        setCookie(AUTH_TOKEN, result, {
+          path: "/",
+        });
+        const res = getValues();
+        setUser({ ...res, isAuth: true });
+        navigate.push("/dashboard");
+      },
+      onError: ({ message }) => {
+        // setError("Email or password is incorrect!");
+        ms.error({
+          content: message,
+          style: {
+            marginTop: "30px",
+          },
+        });
+      },
+    });
 
   const defaultValues = {
     email: "",
@@ -60,12 +59,12 @@ const MainForm: React.FC = () => {
 
   const onSubmit = (data: FormType) => {
     console.log(data, "data");
-    // loginWithEmailMutation({
-    //   variables: {
-    //     email: data.email,
-    //     password: data.password,
-    //   },
-    // });
+    loginWithEmailMutation({
+      variables: {
+        email: data.email,
+        password: data.password,
+      },
+    });
   };
 
   return (
@@ -87,16 +86,16 @@ const MainForm: React.FC = () => {
         />
 
         <Button
-          // loading={loginWithEmailMutationResult.loading}
+          loading={loginWithEmailMutationResult.loading}
           type="primary"
           htmlType="submit"
         >
           Sign In
         </Button>
       </form>
-      {/* <p className={styles.error__text}>
+      <p className={styles.error__text}>
         {JSON.stringify(loginWithEmailMutationResult.error?.message)}
-      </p> */}
+      </p>
     </>
   );
 };

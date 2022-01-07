@@ -6,13 +6,15 @@ import { CookiesProvider } from "react-cookie";
 import type { AppProps } from "next/app";
 import { ApolloProvider } from "@apollo/client";
 // import {client} from "../src/config/ApolloConfig";
-import { client } from "@/config/apollo_client";
+import { useApollo } from "@/config/apollo_client";
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const apolloClient = useApollo(pageProps.initialApolloState);
+
   return (
     <CookiesProvider>
       <RecoilRoot>
-        <ApolloProvider client={client}>
+        <ApolloProvider client={apolloClient}>
           <Component {...pageProps} />
         </ApolloProvider>
       </RecoilRoot>

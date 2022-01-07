@@ -3,8 +3,11 @@ import Head from "next/head";
 import React from "react";
 import Users from "@/view_components/dashboard/Users";
 import Layout from "@/layout";
+import { initializeApollo } from "@/config/apollo_client";
+import { usersQuery } from "@/graphql/user";
 
-const Dashboard: NextPage = () => {
+const Dashboard: NextPage = (props) => {
+  console.log(props?.initialApolloState, "props");
   return (
     <div>
       <Head>
@@ -21,5 +24,21 @@ const Dashboard: NextPage = () => {
     </div>
   );
 };
+
+export async function getStaticProps() {
+  const apolloClient = initializeApollo();
+
+  const data = await apolloClient.query({
+    query: usersQuery,
+  });
+
+  console.log(data, "data");
+  return {
+    props: {
+      initialApolloState: apolloClient.cache.extract(),
+    },
+    revalidate: 1,
+  };
+}
 
 export default Dashboard;

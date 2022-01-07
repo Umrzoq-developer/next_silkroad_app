@@ -3,8 +3,11 @@ import Head from "next/head";
 
 import MainForm from "@/view_components/login/MainForm";
 import styles from "styles/login.module.scss";
+import { useMutation } from "@apollo/client";
 
 const Home: NextPage = () => {
+  // const [addTodo] = useMutation(ADD_TODO, {update: updateCache});
+  console.log(process.env.API_BASE_URL, "next link");
   return (
     <div className={styles.container}>
       <Head>
