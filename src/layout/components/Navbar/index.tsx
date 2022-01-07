@@ -3,10 +3,10 @@ import React from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Cookies from "js-cookie";
-import "./index.scss";
 import { AUTH_TOKEN } from "@/constants/ApiConstant";
 import { useRecoilState } from "recoil";
 import { userDetail } from "@/store/auth";
+import styles from "styles/navbar.module.scss";
 
 const Navbar: React.FC = () => {
   const navigate = useRouter();
@@ -17,11 +17,11 @@ const Navbar: React.FC = () => {
     navigate.push("/");
   };
   return (
-    <div className="navbar__layout">
-      <Link href="/main">
+    <div className={styles.navbar__layout}>
+      <Link href="/dashboard">
         <a>Main</a>
       </Link>
-      <Link href="/math">
+      <Link href="/profile">
         <a>Math</a>
       </Link>
       <Button onClick={handleClick} type="link">

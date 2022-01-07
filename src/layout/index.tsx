@@ -1,10 +1,10 @@
 import React from "react";
 import Navbar from "./components/Navbar";
-import "./index.scss";
+import styles from "styles/layout.module.scss";
 
 const Layout: React.FC = ({ children }) => {
   return (
-    <div className="main__layout">
+    <div className={styles.main__layout}>
       <Navbar />
       {children}
     </div>
