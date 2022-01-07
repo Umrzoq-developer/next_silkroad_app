@@ -1,0 +1,13 @@
+@import "./styles/_colors.scss";
+
+.App {
+  color: $yellow;
+  font-size: 55px;
+}
+
+.error__text {
+  color: $red;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+}
