@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 
-import MainForm from "./components/MainForm";
+import MainForm from "../src/v_components/login_components/MainForm";
 import styles from "styles/login.module.scss";
 
 const Home: NextPage = () => {

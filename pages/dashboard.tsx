@@ -1,8 +1,9 @@
+import { NextPage } from "next";
 import Head from "next/head";
 import React from "react";
-import Users from "./components/Users";
+import Users from "../src/v_components/main_components/Users";
 
-const Main = () => {
+const MainApp: NextPage = () => {
   return (
     <div>
       <Head>
@@ -19,4 +20,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default MainApp;

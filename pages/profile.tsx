@@ -3,8 +3,9 @@ import { UploadOutlined } from "@ant-design/icons";
 import Head from "next/head";
 import React from "react";
 import styles from "styles/card.module.scss";
+import { NextPage } from "next";
 
-const Math = () => {
+const Math: NextPage = () => {
   return (
     <div>
       <Head>
